@@ -1,0 +1,32 @@
+CREATE DATABASE Teste
+GO
+Use Teste
+GO
+CREATE TABLE Usuarios
+(
+	Id INT PRIMARY KEY IDENTITY,
+	Email VARCHAR(100) UNIQUE NOT NULL,
+	Senha VARCHAR(50) NOT NULL
+)
+GO
+
+INSERT INTO Usuarios VALUES ('Email@Email.com', 1234)
+GO
+INSERT INTO Usuarios VALUES ('Email2@Email.com', 1234)
+GO
+
+SELECT * FROM Usuarios
+GO
+SELECT Email, HASHBYTES('MD2', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
+GO
+SELECT Email, HASHBYTES('MD4', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
+GO
+SELECT Email, HASHBYTES('MD5', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
+GO
+SELECT Email, HASHBYTES('SHA', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
+GO
+SELECT Email, HASHBYTES('SHA1', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
+GO
+SELECT Email, HASHBYTES('SHA2_256', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
+GO
+SELECT Email, HASHBYTES('SHA2_512', Senha) AS 'Senha HASH' FROM Usuarios WHERE Id = 1
